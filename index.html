@@ -115,7 +115,6 @@
           <label for="email">Email Address</label>
           <input type="email" name="email" id="email" placeholder="john@example.com" required>
         </div>
-
         <div class="form-group">
           <label for="phone">Phone Number</label>
           <input type="text" name="phone" id="phone" placeholder="+91-9876543210">
@@ -152,12 +151,11 @@
           <select name="price" id="price" required>
             <option value="">Select Range</option>
             <option value="Below ₹1000">Below ₹1000</option>
-            <option value="₹10000 - ₹30000">₹1000 - ₹3000</option>
-            <option value="₹30000 - ₹60000">₹3000 - ₹6000</option>
-            <option value="₹60000+">₹6000+</option>
+            <option value="₹1000 - ₹3000">₹1000 - ₹3000</option>
+            <option value="₹3000 - ₹6000">₹3000 - ₹6000</option>
+            <option value="₹6000+">₹6000+</option>
           </select>
         </div>
-
         <div class="form-group">
           <label for="days">Rental Days</label>
           <input type="number" name="days" id="days" min="1" placeholder="e.g., 3">
@@ -167,6 +165,16 @@
       <div class="form-group">
         <label for="pickup_date">Preferred Pickup Date</label>
         <input type="date" name="pickup_date" id="pickup_date">
+      </div>
+
+      <div class="form-group">
+        <label for="lease_company">Lease Company</label>
+        <select name="lease_company" id="lease_company" required>
+          <option value="">Select Lease Company</option>
+          <option value="CompanyA">CompanyA</option>
+          <option value="CompanyB">CompanyB</option>
+          <option value="Other">Other</option>
+        </select>
       </div>
 
       <div class="form-group">
