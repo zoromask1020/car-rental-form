@@ -4,14 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Car Rental Inquiry</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #004e92;
+      --primary-light: #0066cc;
+      --background: #f4f7fa;
+      --card-bg: #ffffff;
+      --text-dark: #333;
+      --input-border: #ccc;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
+      background: linear-gradient(to right, var(--primary), #000428);
       margin: 0;
       padding: 0;
-      background: linear-gradient(to right, #004e92, #000428);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -19,18 +27,20 @@
     }
 
     .form-container {
-      background-color: #fff;
-      padding: 40px 30px;
-      border-radius: 15px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-      max-width: 700px;
+      background: var(--card-bg);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      max-width: 750px;
       width: 100%;
+      box-sizing: border-box;
     }
 
     h2 {
+      margin: 0 0 30px;
       text-align: center;
-      color: #004e92;
-      margin-bottom: 30px;
+      color: var(--primary);
+      font-size: 28px;
     }
 
     form {
@@ -46,25 +56,21 @@
     label {
       font-weight: 600;
       margin-bottom: 6px;
-      color: #333;
+      color: var(--text-dark);
     }
 
-    input[type="text"],
-    input[type="email"],
-    input[type="number"],
-    input[type="date"],
-    select,
-    textarea {
-      padding: 10px 14px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
+    input, select, textarea {
+      padding: 12px 15px;
+      border: 1px solid var(--input-border);
+      border-radius: 10px;
       font-size: 15px;
-      transition: border-color 0.3s ease;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
     input:focus, select:focus, textarea:focus {
-      border-color: #004e92;
+      border-color: var(--primary);
       outline: none;
+      box-shadow: 0 0 0 2px rgba(0, 78, 146, 0.2);
     }
 
     textarea {
@@ -79,21 +85,22 @@
     }
 
     button {
-      background-color: #004e92;
+      background-color: var(--primary);
       color: white;
       padding: 14px;
       font-size: 16px;
+      font-weight: 600;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
 
     button:hover {
-      background-color: #0066cc;
+      background-color: var(--primary-light);
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 768px) {
       .two-column {
         grid-template-columns: 1fr;
       }
@@ -102,8 +109,8 @@
 </head>
 <body>
   <div class="form-container">
-    <h2>Car Rental Inquiry Form</h2>
-    <form action="https://hook.us2.make.com/uih97t3dzi8cc7ogwvd8k5zhsnn39mkc" method="POST">
+    <h2>Car Rental Enquiry Form</h2>
+    <form action="https://hook.us2.make.com/htcy17wxnr3ohnvv0xvfy8sutpq7xswe" method="POST">
 
       <div class="form-group">
         <label for="name">Full Name</label>
@@ -138,7 +145,6 @@
             <option value="Maruti Suzuki">Maruti Suzuki</option>
           </select>
         </div>
-
         <div class="form-group">
           <label for="model">Car Model</label>
           <input type="text" name="model" id="model" placeholder="E.g., Innova, i20">
@@ -169,11 +175,11 @@
 
       <div class="form-group">
         <label for="lease_company">Lease Company</label>
-        <select name="lease_company_format" id="lease_company" required>
+        <select name="lease_company" id="lease_company" required>
           <option value="">Select Lease Company</option>
-          <option value="CompanyA">CompanyA</option>
-          <option value="CompanyB">CompanyB</option>
-          <option value="Other">Other</option>
+          <option value="Velocity Motors">Velocity Motors</option>
+          <option value="PrimeDrive Auto Group">PrimeDrive Auto Group</option>
+          <option value="AutoSphere Motors">AutoSphere Motors</option>
         </select>
       </div>
 
