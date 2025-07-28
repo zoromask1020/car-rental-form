@@ -191,8 +191,8 @@
     async function loadModelsFromSupabase() {
       const res = await fetch("https://drpthqkcvegwuufktkuj.supabase.co/rest/v1/car_pricing?select=company,model", {
         headers: {
-          apikey: "your-public-api-key", // 🔁 Replace with your actual Supabase anon/public key
-          Authorization: "Bearer your-public-api-key"
+          apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRycHRocWtjdmVnd3V1Zmt0a3VqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTMwODIzMzYsImV4cCI6MjA2ODY1ODMzNn0.uC-Yo0RdMbtcCXX_avH3QJmgesLoQ6NHOuWCXnjptK4", // 🔁 Replace with your actual Supabase anon/public key
+          Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRycHRocWtjdmVnd3V1Zmt0a3VqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTMwODIzMzYsImV4cCI6MjA2ODY1ODMzNn0.uC-Yo0RdMbtcCXX_avH3QJmgesLoQ6NHOuWCXnjptK4"
         }
       });
       const data = await res.json();
