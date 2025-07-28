@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thank You</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      padding: 40px 20px;
+      background-color: #f9f9f9;
+    }
+    h2 {
+      color: #4CAF50;
+      font-size: 28px;
+    }
+    p {
+      font-size: 18px;
+      color: #333;
+    }
+    .links {
+      margin-top: 30px;
+    }
+    a, button {
+      display: inline-block;
+      margin: 10px;
+      text-decoration: none;
+      color: #ffffff;
+      background-color: #4CAF50;
+      padding: 10px 20px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+    a:hover, button:hover {
+      background-color: #388E3C;
+    }
+
+    @media (max-width: 480px) {
+      h2 {
+        font-size: 24px;
+      }
+      p {
+        font-size: 16px;
+      }
+      a, button {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h2>✅ Thank you for your enquiry!</h2>
+  <p>We’ve received your request and will get back to you shortly.</p>
+
+  <div class="links">
+    <a href="/car_leads/">Submit Another Inquiry</a>
+    <button onclick="window.close()">Close</button>
+  </div>
+</body>
+</html>
