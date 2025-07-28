@@ -110,7 +110,7 @@
 <body>
   <div class="form-container">
     <h2>Car Rental Enquiry Form</h2>
-    <form action="https://hook.us2.make.com/htcy17wxnr3ohnvv0xvfy8sutpq7xswe" method="POST">
+    <form id="rentalForm">
 
       <div class="form-group">
         <label for="name">Full Name</label>
@@ -133,21 +133,13 @@
           <label for="company">Car Company</label>
           <select name="company" id="company" required>
             <option value="">Select</option>
-            <option value="Toyota">Toyota</option>
-            <option value="Hyundai">Hyundai</option>
-            <option value="Honda">Honda</option>
-            <option value="Tata">Tata</option>
-            <option value="BMW">BMW</option>
-            <option value="Mercedes">Mercedes</option>
-            <option value="KIA">KIA</option>
-            <option value="Ford">Ford</option>
-            <option value="Cheverolet">Cheverolet</option>
-            <option value="Maruti Suzuki">Maruti Suzuki</option>
           </select>
         </div>
         <div class="form-group">
           <label for="model">Car Model</label>
-          <input type="text" name="model" id="model" placeholder="E.g., Innova, i20">
+          <select name="model" id="model" required>
+            <option value="">Select</option>
+          </select>
         </div>
       </div>
 
@@ -191,9 +183,45 @@
       <button type="submit">Submit Inquiry</button>
     </form>
   </div>
+
   <script>
+    const companySelect = document.getElementById("company");
+    const modelSelect = document.getElementById("model");
+
+    async function loadModelsFromSupabase() {
+      const res = await fetch("https://drpthqkcvegwuufktkuj.supabase.co/rest/v1/car_pricing?select=company,model", {
+        headers: {
+          apikey: "your-public-api-key", // 🔁 Replace with your actual Supabase anon/public key
+          Authorization: "Bearer your-public-api-key"
+        }
+      });
+      const data = await res.json();
+
+      const companies = [...new Set(data.map(item => item.company))];
+      companies.forEach(company => {
+        const opt = document.createElement("option");
+        opt.value = company;
+        opt.textContent = company;
+        companySelect.appendChild(opt);
+      });
+
+      companySelect.addEventListener("change", () => {
+        const selectedCompany = companySelect.value;
+        modelSelect.innerHTML = '<option value="">Select</option>';
+        const filtered = data.filter(item => item.company === selectedCompany);
+        filtered.forEach(car => {
+          const opt = document.createElement("option");
+          opt.value = car.model;
+          opt.textContent = car.model;
+          modelSelect.appendChild(opt);
+        });
+      });
+    }
+
+    loadModelsFromSupabase();
+
     document.getElementById("rentalForm").addEventListener("submit", function(e) {
-      e.preventDefault(); // prevent full page reload
+      e.preventDefault();
 
       const form = e.target;
       const formData = new FormData(form);
@@ -212,7 +240,7 @@
       })
       .then(response => {
         if (response.ok) {
-          window.location.href = "thankyou";
+          window.location.href = "thankyou.html";
         } else {
           alert("Submission failed. Please try again.");
         }
